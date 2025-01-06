@@ -1,7 +1,15 @@
+using infra.Data;
+using Microsoft.EntityFrameworkCore;
+
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var DefaultConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddRazorPages();
+builder
+    .Services.AddDbContext<enterterimentoDbContext>(options => options.UseNpgsql(DefaultConnection), ServiceLifetime.Transient);
 
 var app = builder.Build();
 
