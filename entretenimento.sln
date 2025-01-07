@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "entretenimento", "entretenimento\entretenimento.csproj", "{E1B0E9DC-72E8-41FF-BBCB-68130837808B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "infra", "infra\infra.csproj", "{7560A06A-E97C-4AB3-8DC4-9A690F0E7F56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmes", "filmes\filmes.csproj", "{41B7B63D-719C-43AF-AD01-E7610C2E5C79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E1B0E9DC-72E8-41FF-BBCB-68130837808B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1B0E9DC-72E8-41FF-BBCB-68130837808B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1B0E9DC-72E8-41FF-BBCB-68130837808B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1B0E9DC-72E8-41FF-BBCB-68130837808B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7560A06A-E97C-4AB3-8DC4-9A690F0E7F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7560A06A-E97C-4AB3-8DC4-9A690F0E7F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7560A06A-E97C-4AB3-8DC4-9A690F0E7F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7560A06A-E97C-4AB3-8DC4-9A690F0E7F56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41B7B63D-719C-43AF-AD01-E7610C2E5C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B7B63D-719C-43AF-AD01-E7610C2E5C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B7B63D-719C-43AF-AD01-E7610C2E5C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B7B63D-719C-43AF-AD01-E7610C2E5C79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

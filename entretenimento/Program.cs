@@ -1,15 +1,46 @@
 using infra.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var DefaultConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+
+
+//builder
+//    .Services
+//        .ConfigureApplicationCookie(config =>
+//        {
+//            config.LoginPath = "/login";
+//            config.AccessDeniedPath = "/";
+//        });
+
+//builder
+//    .Services
+//        .AddAuthorization(options =>
+//        {
+//            options.AddPolicy("private", policy =>
+//            {
+//                policy.RequireAuthenticatedUser();
+//            });
+//        });
+//builder
+//    .Services
+//        .AddMvc()
+//        .AddRazorPagesOptions(options =>
+//        {
+//            options
+//                .RootDirectory = "/Pages";
+//            options
+//                .Conventions.AddPageRoute("/Test", "peooples/{handler?}");
+//            options
+//                .Conventions
+//                    .AuthorizeFolder("/")
+//                    .AllowAnonymousToPage("/login");
+//        });
+
 builder.Services.AddRazorPages();
-builder
-    .Services.AddDbContext<enterterimentoDbContext>(options => options.UseNpgsql(DefaultConnection), ServiceLifetime.Transient);
 
 var app = builder.Build();
 
@@ -30,5 +61,4 @@ app.UseAuthorization();
 app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
-
 app.Run();
