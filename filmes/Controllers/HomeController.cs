@@ -53,7 +53,7 @@ namespace filmes.Controllers
                     }
                 }                
             }
-            return View(model);
+            return View(model.Take(10));
         }
 
         [Authorize]

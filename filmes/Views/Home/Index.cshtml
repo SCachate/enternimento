@@ -1,8 +1,48 @@
-﻿@{
+﻿@model IEnumerable<SugestoesModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-6">Aqui nossas sugestões de filme para você assistir:</h1>
+
+    <div class="carousel slide mt-20" data-ride="carousel" data-interval="2000" >
+        @{
+            var itemContador = 0;
+        }
+     
+        <div class="carousel-inner">
+            @{
+                itemContador = 0;
+                var baseUrl = "https://image.tmdb.org/t/p/original";
+                foreach (var item in Model)
+                {
+                    var url = baseUrl + item.poster_path;
+                    <div class="carousel-item @(itemContador == 2 ? "active" : "")">
+                        <img class="w-25" src="@url" alt="(@itemContador+1)st" />
+                        <div class="carousel-caption d-none d-md-block text-bg-light opacity-75">
+                            <h5 class="">@item.title</h5>
+                            <p>@item.overview</p>
+                        </div>
+                    </div>
+                    itemContador++;
+                }
+            }
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    <script>
+        var contador = 0;
+        $(document).ready(function () {
+            setInterval(function() {
+                $('.carousel').carousel(contador);
+                contador++;
+                if (contador > 9)
+                    contador = 0;
+            }, 5000)
+            
+        });
+    </script>
+}
