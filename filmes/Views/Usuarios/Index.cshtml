@@ -1,0 +1,37 @@
+﻿@model IEnumerable<UsuariosModel>
+
+@{
+    ViewBag.Title = "Usuários";
+}
+
+<div>
+    <div class="row">
+        <div class="col-md-9">
+            <h3 class="card-title">Usuários</h3>
+        </div>
+        <div class="col-md-3">
+            <a class="text-white btn btn-primary" asp-area="" asp-controller="Usuarios" asp-action="Registrar">Registrar novo usuário</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(_ => _.Usuario)</th>
+                <th scope="col">@Html.DisplayNameFor(_ => _.Nome)</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var usuario in Model) {
+                <tr>
+                    <td>@Html.DisplayFor(_ => usuario.Usuario)</td>
+                    <td>@Html.DisplayFor(_ => usuario.Nome)</td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Alterar", "Usuarios", new { usuario = usuario.Usuario }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Excluir", "Excluir", "Usuarios", new { usuario = usuario.Usuario }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

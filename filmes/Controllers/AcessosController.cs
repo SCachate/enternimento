@@ -4,11 +4,19 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using infra.Data;
 
 namespace filmes.Controllers
 {
-    public class AcessoController : Controller
+    public class AcessosController : Controller
     {
+        private readonly enterterimentoDbContext _context;
+
+        public AcessosController(enterterimentoDbContext context)
+        {
+            _context = context;
+        }
+
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -22,13 +30,13 @@ namespace filmes.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                if (loginModel.Usuario == "admin" && loginModel.Senha == "admin")
+                var usuario = _context.Usuarios.FirstOrDefault(_ => _.Usuario == loginModel.Usuario && _.Senha == loginModel.Senha);
+                if (usuario != null)
                 {
                     var claims = new List<Claim>();
-                    claims.Add(new Claim("Usuario", loginModel.Usuario));
+                    claims.Add(new Claim("Usuario", usuario.Usuario));
                     claims.Add(new Claim(ClaimTypes.Role, "Usuario"));
-                    claims.Add(new Claim(ClaimTypes.Name, loginModel.Usuario));
+                    claims.Add(new Claim(ClaimTypes.Name, usuario.Nome));
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                     var principal = new ClaimsPrincipal(identity);
